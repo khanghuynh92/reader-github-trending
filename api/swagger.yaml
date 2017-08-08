@@ -1,0 +1,70 @@
+---
+swagger: "2.0"
+info:
+  description: "Reader base scraper"
+  version: "1.0.0"
+  title: "Reader Scraper"
+  contact:
+    name: "Gorillab"
+    url: "https://gorillab.co/"
+    email: "hello@gorillab.co"
+host: "localhost:3002"
+basePath: "/v1"
+tags:
+- name: "scraper"
+  description: "Scraper module"
+schemes:
+- "http"
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /health:
+    get:
+      tags:
+      - "scraper"
+      summary: "Ping to check scraper status"
+      operationId: "health"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Response_200"
+        default:
+          description: "error operation"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Scraper"
+  /fetch:
+    get:
+      tags:
+      - "scraper"
+      summary: "Request to get data"
+      operationId: "fetch"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Response_200"
+        default:
+          description: "error operation"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Scraper"
+definitions:
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+  Response_200:
+    properties:
+      message:
+        type: "string"

@@ -1,0 +1,11 @@
+{
+  "id": "59762f22a8d2627ff95526f2",
+  "name": "Medium Scraper",
+  "apiUrl": "http://localhost:3002/v1",
+  "frequency": "* * * * *",
+  "source": {
+    "id": "59762f22a8d2627ff95526f1",
+    "title": "Javascript Github Trending",
+    "url": "https://api.github.com/search/repositories"
+  }
+}
