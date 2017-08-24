@@ -1,9 +1,9 @@
 {
-  "id": "59762f22a8d2627ff95526f2",
+  "id": "",
   "name": "Github Trending",
   "frequency": "* * * * *",
   "source": {
-    "id": "59762f22a8d2627ff95526f1",
+    "id": "",
     "title": "Javascript Github Trending",
     "url": "https://api.github.com/search/repositories"
   }
