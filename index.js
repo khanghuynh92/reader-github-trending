@@ -21,7 +21,7 @@ config();
   // register scraper
   try {
     const scraper = JSON.parse(Fs.readFileSync('./scraper.json', 'utf8'));
-
+    scraper.apiUrl = process.env.API_URL;
     const res = await Fetch(`${process.env.SCRAPER_ADMIN_URL}/register`, {
       headers: {
         'Content-Type': 'application/json',
