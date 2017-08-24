@@ -10,7 +10,7 @@ const fetch = async () => {
     const twoDateAgo = Moment(new Date(d.setDate(d.getDate() - 2))).format('YYYY-MM-DD');
 
     const params = {
-      access_token: '49fd1033bd9636188ed1ed353d94f64882999bc8',
+      access_token: process.env.GITHUB_TOKEN,
       q: `language:javascript created:>${twoDateAgo}`,
       sort: 'stars',
       order: 'desc',
