@@ -32,12 +32,12 @@ const fetch = async () => {
       const items = result.total_count > process.env.FETCH_LIMIT
         ? result.items.slice(0, process.env.FETCH_LIMIT) : result.items;
       const posts = items.map((item) => {
-        const url = new URL(item.url);
+        const url = new URL(item.html_url);
 
         return {
           url: url.href,
-          title: item.full_name,
-          description: item.description,
+          title: item.description,
+          content: '',
           image: item.owner.avatar_url,
           host: url.hostname,
           path: url.pathname,
