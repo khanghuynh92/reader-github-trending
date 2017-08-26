@@ -11,6 +11,7 @@ import Helmet from 'helmet';
 import HttpStatus from 'http-status';
 import Fetch from 'node-fetch';
 import { config } from 'dotenv';
+import Health from 'gorillab-health';
 
 import APIError from './helpers/APIError';
 
@@ -30,8 +31,16 @@ config();
       method: 'POST',
       body: JSON.stringify(scraper),
     });
+
+    if (res.status !== 200) {
+      console.log('Register scraper failed!');
+      process.exit(1);
+    }
+
+    const data = await res.json();
+
     if (!scraper.id || !scraper.source.id) {
-      Fs.writeFileSync('./scraper.json', JSON.stringify(res));
+      Fs.writeFileSync('./scraper.json', JSON.stringify(data));
     }
   } catch (err) {
     console.log('Register scraper failed!');
@@ -42,6 +51,8 @@ config();
   SwaggerTools.initializeMiddleware(Jsyaml.safeLoad(Fs.readFileSync(Path.join(__dirname, '/api/swagger.yaml'), 'utf8')), (middleware) => {
     // Init the server
     const app = Express();
+    // Use gorillab health check
+    app.use(Health());
     app.use(Logger('common'));
     app.use(BodyParser.json({ limit: '1mb' }));
     app.use(BodyParser.urlencoded({ extended: true }));
