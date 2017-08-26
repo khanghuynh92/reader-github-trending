@@ -36,7 +36,7 @@ const fetch = async () => {
 
         return {
           url: url.href,
-          title: item.description,
+          title: item.description || item.item.full_name,
           content: '',
           image: item.owner.avatar_url,
           host: url.hostname,
