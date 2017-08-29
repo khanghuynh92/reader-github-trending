@@ -11,7 +11,7 @@ const fetch = async () => {
 
     const params = {
       access_token: process.env.GITHUB_TOKEN,
-      q: `language:javascript created:>${twoDateAgo}`,
+      q: `created:>${twoDateAgo}`,
       sort: 'stars',
       order: 'desc',
     };
