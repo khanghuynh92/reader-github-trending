@@ -1,7 +1,7 @@
 {
   "id": "",
   "name": "Github Trending",
-  "frequency": "* * * * *",
+  "frequency": "00 00 * * *",
   "source": {
     "id": "",
     "title": "Github Trending",
