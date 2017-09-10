@@ -1,0 +1,10 @@
+{
+  "id": "",
+  "name": "Github Trending",
+  "frequency": "00 00 * * *",
+  "source": {
+    "id": "",
+    "title": "Github Trending",
+    "url": "https://api.github.com/search/repositories"
+  }
+}
