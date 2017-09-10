@@ -1,0 +1,79 @@
+{
+  "name": "reader-github-trending",
+  "version": "1.0.0",
+  "description": "Reader Github Trending",
+  "author": "",
+  "engines": {
+    "node": ">=6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gorillab/reader-github-trending.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "eslint . --ignore-path .gitignore",
+    "crawler": "nodemon xray.js",
+    "start": "nodemon index.js --ignore /scraper.json --exec \"yarn lint && babel-node\"",
+    "mock": "NODE_ENV=mock nodemon index.js --ignore /scraper.json --exec babel-node",
+    "prebuild": "yarn run clean && yarn lint",
+    "build": "babel . --out-dir dist --ignore node_modules,dist,package.json,scraper.json,README.md,yarn.lock --copy-files --minified",
+    "serve": "node dist"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "reader-scraper": "^1.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-regenerator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-airbnb": "^2.4.0",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "15.0.1",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "5.0.1",
+    "eslint-plugin-react": "7.1.0",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": "airbnb",
+    "rules": {
+      "no-underscore-dangle": [
+        2,
+        {
+          "allow": [
+            "_id",
+            "__v"
+          ]
+        }
+      ],
+      "no-param-reassign": [
+        2,
+        {
+          "props": false
+        }
+      ],
+      "func-names": [
+        "error",
+        "never"
+      ]
+    }
+  },
+  "babel": {
+    "presets": [
+      "airbnb"
+    ],
+    "plugins": [
+      "transform-runtime",
+      "transform-regenerator"
+    ]
+  }
+}
