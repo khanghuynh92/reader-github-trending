@@ -24,6 +24,7 @@
   "license": "ISC",
   "dependencies": {
     "moment": "^2.18.1",
+    "babel-runtime": "^6.26.0",
     "reader-scraper": "^1.0.4"
   },
   "devDependencies": {
