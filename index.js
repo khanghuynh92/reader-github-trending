@@ -1,5 +1,5 @@
 const URL = require('url');
-const readerScraper = require('reader-scraper');
+const readerScraper = require('@gorillab/reader-scraper');
 
 const formatDate = (date) => {
     const d = new Date(date),

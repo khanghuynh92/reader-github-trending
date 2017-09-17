@@ -16,7 +16,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "reader-scraper": "^1.0.4",
-    "babel-runtime": "^6.26.0"
+    "@gorillab/reader-scraper": "^1.0.1"
   }
 }
