@@ -12,7 +12,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "babel-runtime": "^6.26.0"
   },
   "license": "ISC",
   "dependencies": {
