@@ -1,11 +1,21 @@
-// import Path from 'path';
-import Moment from 'moment';
-import { URL } from 'url';
-import * as readerScraper from 'reader-scraper';
+const URL = require('url');
+const readerScraper = require('reader-scraper');
+
+const formatDate = (date) => {
+    const d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    return [d.getFullYear(),
+      month.length < 2 ? '0' + month : month,
+      day.length < 2 ? '0' + day : day
+    ].join('-');
+};
 
 // generate url
 const d = new Date();
-const twoDateAgo = Moment(new Date(d.setDate(d.getDate() - 2))).format('YYYY-MM-DD');
+const twoDateAgo = formatDate(new Date(d.setDate(d.getDate() - 2)));
 const params = {
   access_token: 'a538daf7104fd88118501cee739e412878dd9be2',
   q: `created:>${twoDateAgo}`,
