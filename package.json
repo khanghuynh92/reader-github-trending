@@ -12,11 +12,11 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "babel-runtime": "^6.26.0"
+    "start": "node index.js"
   },
   "license": "ISC",
   "dependencies": {
-    "reader-scraper": "^1.0.4"
+    "reader-scraper": "^1.0.4",
+    "babel-runtime": "^6.26.0"
   }
 }
